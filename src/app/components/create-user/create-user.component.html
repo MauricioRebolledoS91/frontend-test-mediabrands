@@ -1,0 +1,47 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="title">{{action | uppercase}} USUARIO</h5>
+    <form [formGroup]="form" (ngSubmit)="saveUser()">
+      <div class="input-group mb-3">
+        <span class="input-group-text"><i class="fa-solid fa-circle-user"
+          [class.green-icon]="this.form.get('firstName')?.valid"
+          [class.red-icon]="this.form.get('firstName')?.invalid && this.form.get('firstName')?.touched"></i></span>
+        <input type="text" formControlName="firstName" class="form-control" maxlength="25" placeholder="Nombre">
+      </div>
+      <div *ngIf="form.controls['firstName'].invalid && form.controls['firstName'].touched" class="alert alert-danger">
+         <span>Nombre es requerido</span>
+    </div>
+     <div class="input-group mb-3">
+      <span class="input-group-text"><i class="fa-solid fa-circle-user"
+        [class.green-icon]="this.form.get('lastName')?.valid"
+        [class.red-icon]="this.form.get('lastName')?.invalid && this.form.get('lastName')?.touched"></i></span>
+      <input type="text" formControlName="lastName" class="form-control" maxlength="25" placeholder="Apellido">
+     </div>
+     <div *ngIf="form.controls['lastName'].invalid && form.controls['lastName'].touched" class="alert alert-danger">
+      <span>Apellido es requerido</span>
+ </div>
+     <div class="input-group mb-3">
+      <span class="input-group-text"><i class="fa-solid fa-circle-user"
+        [class.green-icon]="this.form.get('email')?.valid"
+        [class.red-icon]="this.form.get('email')?.invalid && this.form.get('email')?.touched"></i></span>
+      <input type="text" formControlName="email" class="form-control" maxlength="25" placeholder="Email">
+     </div>
+     <div *ngIf="form.controls['email'].invalid && form.controls['email'].touched" class="alert alert-danger">
+      <span>Email debe tener formato correcto ej: test@hotmail.com</span>
+ </div>
+     <div class="input-group mb-3">
+      <span class="input-group-text"><i class="fa-solid fa-circle-user"
+        [class.green-icon]="this.form.get('userName')?.valid"
+        [class.red-icon]="this.form.get('userName')?.invalid && this.form.get('userName')?.touched"></i></span>
+      <input type="text" formControlName="userName" class="form-control" maxlength="12" placeholder="Nombre de Usuario">
+     </div>
+     <div *ngIf="form.controls['userName'].invalid && form.controls['userName'].touched" class="alert alert-danger">
+      <span>Un nombre de usuario es requerido</span>
+ </div>
+     <div class="d-grid gap-2">
+      <button [disabled]="form.invalid" class="btn btn-success btn-lg" type="submit">
+        <i class="fas fa-database"></i>&nbsp;Aceptar</button>
+    </div>
+  </form>
+  </div>
+</div>

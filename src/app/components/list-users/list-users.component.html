@@ -1,0 +1,19 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="title">LISTAR USUARIOS</h5>
+    <table class="table">
+      <tbody>
+        <tr *ngFor="let user of userList">
+          <td>{{user.firstName}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.userName}}</td>
+          <td>
+            <i (click)="editUser(user)" class="fa fa-pen-to-square text-info"></i>
+            <i (click)="deleteUser(user.id)" class="fa fa-trash text-danger"
+            ></i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
